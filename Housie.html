@@ -1,6 +1,6 @@
 <html>
     <head>
-        <style>
+        <style> 
             .button {
   border: none;
   color: #027398;
@@ -12,24 +12,27 @@
   margin: 4px 2px;
   cursor: pointer;
   background-color: #00FF0A;
-}
-</style>
+} 
+</style> <!-- css style for buttons-->
         
     <script>
             var ini_num_pool = Array()
             var used_num_pool = Array()
             var curr_num
+            // Declaration of all the variables used
             var i =0
             while (i<90){
              i = i +1
              ini_num_pool.push(i)
             }
+            // Creating the initial number pool from 1 to 90
             function pull_num(){
              curr_num = ini_num_pool[Math.floor(Math.random()*ini_num_pool.length)]
              used_num_pool.push(curr_num)
              ini_num_pool = ini_num_pool.filter(function(num){
                 return num !== curr_num
              })
+             // Function that pulls the number from intial number pool and assigns it to current number variable, removes it from initial number pool and places it in used number pool
              switch (curr_num){
                 case 1:
 document.getElementById("myImage").src = "1.png"
@@ -304,15 +307,18 @@ break;
 default:
     document.getElementById("myImage").src = "title.png"
              }
+             // Switch cases to change the image which displays the number
             }
             function check(){
              console.log(used_num_pool)
              console.log(ini_num_pool)
             }
+            // Function to check which number are left and which number are left
         </script>
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js">
 
         </script>
+        <!--Importing the lottie player from github library-->
         <title>
             Housie
         </title>
@@ -328,6 +334,7 @@ default:
         <img src="name.png">
         </div>
     </div>
+    <!--div block containing Housie image as title.png,College logo as logo.png and College name as name.png-->
         <div style="text-align: center; position: absolute; padding-top: 50px; font-size: 30px; padding-inline-start: 535px; font-style: oblique;
         color: white;">
             Presented by Batch 2023
@@ -335,18 +342,22 @@ default:
         <div style="text-align: center; padding-top: 100px; position: absolute; padding-inline-start: 590px; z-index: 1000;">
             <button type="button" class="button" onclick = "pull_num()"> New Number</button>
         </div> 
+        <!--Div block containg button to pull a number-->
         <div> 
             <div style="position: absolute; padding-top: 200px;">
                 <img src="Rules.png">
             </div> 
+            <!--Div block containing rules.png-->
         <div style="text-align: center; width: 600px; height: 600px; padding-inline-start: 383px; position: absolute; z-index: 1; padding-top: 100px;">
 
             <lottie-player src="curtains.json" speed="0.5" controls >
             </lottie-player>
         </div>
+        <!--div block containg lottie animation-->
         <div style="text-align: center; width: 600px; height: 600px; padding-inline-start: 383px; position: absolute; z-index: 0; padding-top: 100px;">
             <img src="blank.png" id="myImage" style="padding-top: 100;">
         </div>
+        <!--div block containing the image that shows which number was pulled-->
         </div>
         
     </body>
